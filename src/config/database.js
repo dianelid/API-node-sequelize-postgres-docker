@@ -6,6 +6,6 @@ module.exports = {
   database: 'sqlnode',
   define: {
     timestamps: true,
-    underscored: true,
+    freezeTableName: true,
   },
 };
