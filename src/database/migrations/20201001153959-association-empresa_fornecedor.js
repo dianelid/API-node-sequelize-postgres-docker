@@ -2,25 +2,26 @@
 
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    return queryInterface.createTable('Empresa', {
+    return queryInterface.createTable('EmpresaFornecedor', {
       id: {
        type: Sequelize.INTEGER,
        primaryKey: true,
        autoIncrement: true,
        allowNull: false,
       },
-      nomeFantasia: {
-        type: Sequelize.STRING,
+      empresaId: {
+        type: Sequelize.INTEGER,
         allowNull: false,
+        references: { model: 'Empresa', key: 'id'},
+        onUpdate: 'CASCADE',
+        onDelete: 'CASCADE',
       },
-      uf: {
-        type: Sequelize.STRING(2),
+      fornecedorId: {
+        type: Sequelize.INTEGER,
         allowNull: false,
-      },
-      cnpj: {
-        type: Sequelize.STRING,
-        allowNull: false,
-        unique: true,
+        references: { model: 'Fornecedor', key: 'id'},
+        onUpdate: 'CASCADE',
+        onDelete: 'CASCADE',
       },
       createdAt: {
         type: Sequelize.DATE,
@@ -34,6 +35,6 @@ module.exports = {
   },
 
   down: async (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('Empresa');
+    return queryInterface.dropTable('EmpresaFornecedor');
   }
 };

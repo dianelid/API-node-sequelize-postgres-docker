@@ -2,7 +2,7 @@
 
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    return queryInterface.createTable('fornecedor_pf', {
+    return queryInterface.createTable('Fornecedor', {
       id: {
         type: Sequelize.INTEGER,
         primaryKey: true,
@@ -18,25 +18,23 @@ module.exports = {
         allowNull: false,
         unique: true,
       },
-      cpf: {
+      cpf_cnpj: {
         type: Sequelize.STRING,
         allowNull: false,
         unique: true,
       },
       rg: {
         type: Sequelize.STRING,
-        allowNull: false,
         unique: true,
       },
       nascimento: {
         type: Sequelize.DATE,
-        allowNull: false,
       },
-      created_at: {
+      createdAt: {
         type: Sequelize.DATE,
         allowNull: false,
       },
-      updated_at: {
+      updatedAt: {
         type: Sequelize.DATE,
         allowNull: false,
       },
@@ -44,6 +42,6 @@ module.exports = {
   },
 
   down: async (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('fornecedor_pf');
+    return queryInterface.dropTable('Fornecedor');
   }
 };
