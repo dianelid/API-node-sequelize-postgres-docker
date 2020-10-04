@@ -9,7 +9,10 @@ Tecnologias utilizadas:
 * PostgreSQL
 
 ## Execução
-Execute no terminal `docker-compose up --build` na pasta raiz do projeto.
+1º No terminal, inicialize o docker: `docker run -d -p 3001:3001 docker/container`
+2º No arquivo src/config/datadase.js, altere o endereço do host inserindo o endereço ip do container docker
+3º No terminal, execute as migrations do sequelize para criar as tabelas do banco de dados: `yarn sequelize db:migrate`
+4º No terminal, execute `docker-compose up`
 
 ## Chamadas do Postman
 ### Entidade Empresa
